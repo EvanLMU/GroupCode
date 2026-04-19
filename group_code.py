@@ -18,9 +18,10 @@ def string_to_numbers(string: str, mapping: dict) -> list[int]:
     returns: [23, 8, 1, 20, -1, 19, -1, 21, 16, -1]
     """
 
-    # Write code here
+    print("just checking the list")
+    print("This is just random crap")
 
-    return number_list
+    return [mapping[x] for x in list(string) if x in mapping.keys()]
 
 
 dict = {"a":1, "b":2, "c":3, "d":4, "e":5, "f":6, "g":7, "h":8, "i":9, "j":10, "k":11, "l":12, "m":13, "n":14, "o":15,
