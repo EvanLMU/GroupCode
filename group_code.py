@@ -17,15 +17,11 @@ def string_to_numbers(string: str, mapping: dict[str:int]) -> list[int]:
     string_to_numbers(string="what's up?", mapping = {"a":1, "b":2, "c":3, etc...})
     returns: [23, 8, 1, 20, -1, 19, -1, 21, 16, -1]
     """
-    
-    number_list = []
-    for char in list(string):
-        if char not in mapping_dict.keys():
-            number_list.append(-1)
-        else:
-            number_list.append(mapping_dict[char.lower()])
 
-    return number_list
+    print("just checking the list")
+    print("This is just random crap")
+
+    return [mapping[x] for x in list(string) if x in mapping.keys()]
 
 
 mapping_dict = {"a":1, "b":2, "c":3, "d":4, "e":5, "f":6, "g":7, "h":8, "i":9, "j":10, "k":11, "l":12, "m":13, "n":14, "o":15,
