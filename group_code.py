@@ -19,7 +19,7 @@ def string_to_numbers(string: str, mapping: dict[str,int]) -> list[int]:
     """
 
     number_list = []
-    for char in string:
+    for char in string.lower():
         if char in mapping:
             number_list.append(mapping[char])
         else:
