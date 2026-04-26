@@ -1,4 +1,4 @@
-def string_to_numbers(string: str, mapping: dict[str:int]) -> list[int]:
+def string_to_numbers(string: str, mapping: dict[str,int]) -> list[int]:
     """
     Description
     The function takes a string and a mapping dictionary.
