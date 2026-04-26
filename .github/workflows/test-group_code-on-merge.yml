@@ -28,4 +28,4 @@ jobs:
 
       - name: Run group_code tests
         run: |
-          pytest tests/
+          pytest
