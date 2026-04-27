@@ -1,4 +1,4 @@
-name: Test group_code.py on merge
+name: Test group_code.py on merge/push
 
 on:
   push:
