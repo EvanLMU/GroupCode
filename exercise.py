@@ -33,6 +33,13 @@ def is_valid_request(request):
     """
 
     # Write code here
+   count = 0
+    for book in request:
+        if len(book) == 3 and book["days"] > 0:
+            count += 1
+    if count == len(request):
+        return True
+
 
 
 def find_book(books, title):
