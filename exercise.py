@@ -32,31 +32,40 @@ def is_valid_request(request):
     Returns True if request contains 'user', 'title', and valid 'days' (>0).
     """
 
+    # Write code here
+
 
 def find_book(books, title):
     """
     Returns the book dictionary matching the title, or None if not found.
     """
 
+    # Write code here
 
-def is_available(book, books):
+
+def is_available(book):
     """
     Returns True if at least one copy is available.
     """
 
+    # Write code here
 
-def checkout_book(book, books):
+
+def checkout_book(book):
     """
     Decreases available copies by 1.
     """
 
+    # Write code here
 
 from datetime import datetime, timedelta
+
 def calculate_due_date(days):
     """
     Returns a due date (string) based on today's date + given days.
     """
 
+    # Write code here
 
 #####################
 # PART 2
@@ -67,6 +76,14 @@ def process_checkouts(books, requests):
     """
     Processes all checkout requests and returns a summary dictionary.
     """
+
+    # Write code here
+    
+    return final_output
+
+print(process_checkouts(books, requests))
+
+
 
 """
 This function should:
@@ -89,7 +106,7 @@ example_final_output = {
         ...
     ],
     "failed": [
-        {"user": "Diana", "title": "The Hobbit", "reason": "Book not found"},
+        {"user": "Diana", "title": "The Hobbit", "days": 7, "reason": "Book not found"},
         ...
     ],
     "inventory": [
