@@ -39,8 +39,11 @@ def find_book(books, title):
     """
     Returns the book dictionary matching the title, or None if not found.
     """
-
-    # Write code here
+    
+    for book in books:
+        if book["title"] == title:
+            return book
+    return None
 
 
 def is_available(book):
