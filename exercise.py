@@ -33,12 +33,16 @@ def is_valid_request(request):
     """
 
     # Write code here
-   count = 0
-    for book in request:
-        if len(book) == 3 and book["days"] > 0:
-            count += 1
-    if count == len(request):
-        return True
+    keys = list(request.keys())
+
+    for key in ["user", "title", "days"]:
+        if key not in keys:
+            return False
+        
+    if request['days'] <= 0 or not isinstance(request['days'], int):
+        return False
+    
+    return True
 
 
 
@@ -58,7 +62,10 @@ def is_available(book):
     Returns True if at least one copy is available.
     """
 
-    # Write code here
+    if book["copies"] > 0:
+        return True
+    else:
+        return False
 
 
 def checkout_book(book):
@@ -66,7 +73,9 @@ def checkout_book(book):
     Decreases available copies by 1.
     """
 
-    # Write code here
+    book["copies"] -= 1
+
+    return book
 
 from datetime import datetime, timedelta
 
@@ -75,7 +84,11 @@ def calculate_due_date(days):
     Returns a due date (string) based on today's date + given days.
     """
 
-    # Write code here
+    today = datetime.today()
+
+    due = today + timedelta(days)
+
+    return str(due.date())
 
 #####################
 # PART 2
@@ -87,7 +100,32 @@ def process_checkouts(books, requests):
     Processes all checkout requests and returns a summary dictionary.
     """
 
-    # Write code here
+    final_output = {"success":[] , "failed":[]}
+
+    for request in requests:
+
+        if not is_valid_request(request):
+            request["reason"] = "Invalid request format."
+            final_output['failed'].append(request)
+            continue
+        
+        book = find_book(books, request['title'])
+
+        if book == None:
+            request["reason"] = "Book not found."
+            final_output['failed'].append(request)
+            continue
+
+        if not is_available(book):
+            request["reason"] = "Book not available."
+            final_output['failed'].append(request)
+            continue
+
+        book = checkout_book(book)
+        request["due_date"] = calculate_due_date(request["days"])
+        final_output['success'].append(request)
+
+        final_output['inventory'] = books
     
     return final_output
 

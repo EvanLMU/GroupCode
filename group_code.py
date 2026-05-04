@@ -17,6 +17,7 @@ def string_to_numbers(string: str, mapping: dict[str,int]) -> list[int]:
     string_to_numbers(string="what's up?", mapping = {"a":1, "b":2, "c":3, etc...})
     returns: [23, 8, 1, 20, -1, 19, -1, 21, 16, -1]
     """
+    # This is some insignificant line of code
 
     number_list = []
     for char in string.lower():
